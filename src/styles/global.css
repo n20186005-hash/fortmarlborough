@@ -157,7 +157,11 @@ figcaption span { color: var(--terracotta); font: 500 .65rem var(--font-mono); }
 .map-frame { min-height: 360px; border: 8px solid #fffdf7; box-shadow: 15px 15px 0 rgba(214,119,74,.35); }
 .map-frame iframe { display: block; width: 100%; min-height: 360px; filter: grayscale(.28) contrast(.96); }
 
-.around-section { padding: 120px 0; background: var(--ink); color: #fffdf7; }
+.around-section.chapter { grid-template-columns: none; background: var(--ink); color: #fffdf7; padding: 120px 0; }
+.around-inner { display: grid; grid-template-columns: 160px 1fr; gap: 3rem; }
+.around-section.chapter .around-heading { margin-bottom: 3rem; }
+.around-section.chapter .around-heading h2 { color: #fffdf7; }
+.around-section.chapter .chapter-body { max-width: none; }
 .around-heading { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 3rem; }
 .around-heading h2 { margin: 0; color: #fffdf7; }
 .around-grid { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(255,255,255,.25); }
@@ -234,6 +238,8 @@ figcaption span { color: var(--terracotta); font: 500 .65rem var(--font-mono); }
   .at-a-glance { max-width: 430px; }
   .hero-caption { font-size: .5rem; }
   .chapter, .explore-layout { grid-template-columns: 90px 1fr; gap: 1.8rem; }
+  .around-inner { grid-template-columns: 90px 1fr; gap: 1.8rem; }
+  .around-section.chapter { padding: 105px 0; }
   .vertical-figure { grid-column: 2; width: min(370px, 100%); margin-top: 1rem; }
   .journey-layout, .map-section { grid-template-columns: 1fr; gap: 2rem; }
   .journey-cards { grid-template-columns: repeat(3, 1fr); }
@@ -272,7 +278,8 @@ figcaption span { color: var(--terracotta); font: 500 .65rem var(--font-mono); }
   .journey-cards article { padding: 1.1rem; }
   .map-section { padding: 85px 0; }
   .map-frame, .map-frame iframe { min-height: 290px; }
-  .around-section { padding: 85px 0; }
+  .around-section.chapter { padding: 85px 0; }
+  .around-inner { grid-template-columns: 1fr; gap: 1.3rem; }
   .around-heading { display: block; }
   .around-grid { grid-template-columns: 1fr; }
   .around-grid article, .around-grid article:first-child, .around-grid article:nth-child(3) { min-height: 0; border-left: 1px solid rgba(255,255,255,.2); border-bottom: 1px solid rgba(255,255,255,.2); }
