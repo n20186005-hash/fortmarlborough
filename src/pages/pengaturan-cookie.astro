@@ -1,0 +1,91 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Pengaturan Cookie | Panduan Benteng Marlborough";
+const description = "Atur preferensi cookie analitik untuk situs Panduan Benteng Marlborough secara langsung pada halaman tersendiri.";
+---
+
+<BaseLayout {title} {description} lang="id" alternatePath="/en/cookie-settings/" alternateLang="en">
+  <a class="skip-link" href="#isi">Lewati ke isi utama</a>
+
+  <header class="subpage-header page-shell">
+    <a class="brand" href="/" aria-label="Kembali ke beranda Panduan Benteng Marlborough">
+      <img src="/mark.svg" alt="Tanda Benteng Marlborough" width="56" height="56" />
+      <span class="brand-copy"><strong>BENTENG</strong><span>Marlborough</span></span>
+    </a>
+    <div class="subpage-tools">
+      <a class="subpage-home-link" href="/">KEMBALI KE BERANDA</a>
+      <a class="header-lang-link" href="/en/cookie-settings/" lang="en" hreflang="en">EN</a>
+    </div>
+  </header>
+
+  <main id="isi" class="legal-page">
+    <section class="legal-hero">
+      <div class="page-shell legal-hero-inner">
+        <p class="section-label">PREFERENSI</p>
+        <h1>Pengaturan <em>cookie</em></h1>
+        <p class="legal-intro">Halaman ini memberi Anda kendali langsung atas pemuatan cookie analitik. Preferensi disimpan secara lokal di browser agar pilihan Anda tetap diingat pada kunjungan berikutnya.</p>
+      </div>
+    </section>
+
+    <section class="legal-content page-shell">
+      <div class="legal-grid">
+        <aside class="legal-meta">
+          <p class="dialog-updated">Diperbarui: Agustus 2026</p>
+          <p>Cookie penting dibutuhkan untuk fungsi dasar situs. Cookie analitik bersifat opsional dan hanya dimuat setelah Anda menyetujuinya.</p>
+        </aside>
+        <article class="legal-card">
+          <h2>Pilih preferensi Anda</h2>
+          <div class="cookie-option">
+            <div><strong>Cookie penting</strong><p>Diperlukan untuk fungsi dasar situs dan tidak dapat dimatikan.</p></div>
+            <span>Selalu aktif</span>
+          </div>
+          <label class="cookie-option">
+            <div><strong>Cookie analitik</strong><p>Membantu memahami penggunaan situs secara agregat melalui Google Analytics.</p></div>
+            <input type="checkbox" id="analytics-choice" />
+            <span class="switch" aria-hidden="true"></span>
+          </label>
+          <div class="cookie-actions">
+            <button class="button button-quiet" type="button" data-reject-cookies>Tolak semua</button>
+            <button class="button button-solid" type="button" data-save-cookies>Simpan preferensi</button>
+          </div>
+          <p id="cookie-status" aria-live="polite"></p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell footer-grid">
+      <div class="footer-brand"><img src="/mark.svg" alt="" width="44" height="44" /><p><strong>Panduan Benteng Marlborough</strong><br />Preferensi cookie kini tersedia sebagai halaman mandiri yang bisa dibuka ulang kapan saja.</p></div>
+      <div class="footer-links"><a href="/">Beranda panduan</a><a href="/kebijakan-privasi/">Kebijakan privasi</a><a href="/ketentuan-penggunaan/">Ketentuan penggunaan</a></div>
+      <div class="footer-legal"><a href="/kebijakan-privasi/">Kebijakan privasi</a><a href="/ketentuan-penggunaan/">Ketentuan penggunaan</a><a href="/pengaturan-cookie/">Pengaturan cookie</a></div>
+    </div>
+    <div class="page-shell footer-bottom"><p>Proyek panduan informasi pengunjung yang independen dan nirlaba; tidak berafiliasi dengan pengelola resmi, pemerintah, atau organisasi komersial mana pun.</p><p>© 2026 Panduan Benteng Marlborough.</p></div>
+  </footer>
+
+  <script>
+    const storageKey = "benteng-marlborough-analytics";
+    const analyticsChoice = document.querySelector("#analytics-choice");
+    const status = document.querySelector("#cookie-status");
+    const reflectStatus = (choice) => {
+      if (!status) return;
+      status.textContent = choice === "granted" ? "Cookie analitik diaktifkan." : "Cookie analitik dinonaktifkan.";
+    };
+    if (analyticsChoice instanceof HTMLInputElement) {
+      analyticsChoice.checked = localStorage.getItem(storageKey) === "granted";
+      reflectStatus(analyticsChoice.checked ? "granted" : "denied");
+    }
+    document.querySelector("[data-save-cookies]")?.addEventListener("click", () => {
+      const choice = analyticsChoice instanceof HTMLInputElement && analyticsChoice.checked ? "granted" : "denied";
+      localStorage.setItem(storageKey, choice);
+      if (choice === "granted") window.dispatchEvent(new Event("benteng:analytics-consent"));
+      reflectStatus(choice);
+    });
+    document.querySelector("[data-reject-cookies]")?.addEventListener("click", () => {
+      localStorage.setItem(storageKey, "denied");
+      if (analyticsChoice instanceof HTMLInputElement) analyticsChoice.checked = false;
+      reflectStatus("denied");
+    });
+  </script>
+</BaseLayout>

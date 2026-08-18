@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const title = "Privacy Policy | Fort Marlborough Guide";
+const description = "How Fort Marlborough Guide processes data, uses third-party services, and stores cookie preferences.";
+---
+
+<BaseLayout {title} {description} lang="en" alternatePath="/kebijakan-privasi/" alternateLang="id">
+  <a class="skip-link" href="#content">Skip to main content</a>
+
+  <header class="subpage-header page-shell">
+    <a class="brand" href="/en/" aria-label="Return to Fort Marlborough Guide home">
+      <img src="/mark.svg" alt="Fort Marlborough mark" width="56" height="56" />
+      <span class="brand-copy"><strong>FORT</strong><span>Marlborough</span></span>
+    </a>
+    <div class="subpage-tools">
+      <a class="subpage-home-link" href="/en/">BACK TO HOME</a>
+      <a class="header-lang-link" href="/kebijakan-privasi/" lang="id" hreflang="id">ID</a>
+    </div>
+  </header>
+
+  <main id="content" class="legal-page">
+    <section class="legal-hero">
+      <div class="page-shell legal-hero-inner">
+        <p class="section-label">PRIVACY</p>
+        <h1>Privacy <em>policy</em></h1>
+        <p class="legal-intro">This page explains what data the site processes, why it is used, and how analytical-cookie preferences work on your device.</p>
+      </div>
+    </section>
+
+    <section class="legal-content page-shell">
+      <div class="legal-grid">
+        <aside class="legal-meta">
+          <p class="dialog-updated">Updated: August 2026</p>
+          <p>This guide follows a data-minimal approach and loads analytics only after your local consent is stored.</p>
+        </aside>
+        <article class="legal-card">
+          <h2>Information we process</h2>
+          <p>We aim to limit processing to what is necessary for running the site, including technical delivery data, cookie preferences you save in your browser, and information you voluntarily send through available contact channels.</p>
+
+          <h3>Why it is used</h3>
+          <p>Data may be used to understand aggregate use, improve the guide, respond to requests, and meet applicable legal obligations.</p>
+
+          <h3>Third-party services</h3>
+          <p>Google Maps and Google Analytics may process data under their own policies. Analytics load only after you consent through the cookie-settings page.</p>
+
+          <h3>Preference storage</h3>
+          <p>Your analytics-cookie choice is stored locally in your browser through <code>localStorage</code> as a simple consent value. This allows the site to remember your choice on later visits.</p>
+
+          <h3>Your rights</h3>
+          <p>You may request access, correction, deletion, restriction, or raise an objection in accordance with applicable data-protection law.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell footer-grid">
+      <div class="footer-brand"><img src="/mark.svg" alt="" width="44" height="44" /><p><strong>Fort Marlborough Guide</strong><br />Policy pages are now full reading pages rather than pop-up windows.</p></div>
+      <div class="footer-links"><a href="/en/">Guide home</a><a href="/en/terms-of-use/">Terms of use</a><a href="/en/cookie-settings/">Cookie settings</a></div>
+      <div class="footer-legal"><a href="/en/privacy-policy/">Privacy policy</a><a href="/en/terms-of-use/">Terms of use</a><a href="/en/cookie-settings/">Cookie settings</a></div>
+    </div>
+    <div class="page-shell footer-bottom"><p>An independent, non-profit visitor-information project; not affiliated with the official site manager, government or commercial organisations.</p><p>© 2026 Fort Marlborough Guide.</p></div>
+  </footer>
+</BaseLayout>

@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Ketentuan Penggunaan | Panduan Benteng Marlborough";
+const description = "Ketentuan penggunaan situs Panduan Benteng Marlborough, termasuk sifat informasi, verifikasi sumber, dan hak cipta.";
+---
+
+<BaseLayout {title} {description} lang="id" alternatePath="/en/terms-of-use/" alternateLang="en">
+  <a class="skip-link" href="#isi">Lewati ke isi utama</a>
+
+  <header class="subpage-header page-shell">
+    <a class="brand" href="/" aria-label="Kembali ke beranda Panduan Benteng Marlborough">
+      <img src="/mark.svg" alt="Tanda Benteng Marlborough" width="56" height="56" />
+      <span class="brand-copy"><strong>BENTENG</strong><span>Marlborough</span></span>
+    </a>
+    <div class="subpage-tools">
+      <a class="subpage-home-link" href="/">KEMBALI KE BERANDA</a>
+      <a class="header-lang-link" href="/en/terms-of-use/" lang="en" hreflang="en">EN</a>
+    </div>
+  </header>
+
+  <main id="isi" class="legal-page">
+    <section class="legal-hero">
+      <div class="page-shell legal-hero-inner">
+        <p class="section-label">PENGGUNAAN</p>
+        <h1>Ketentuan <em>penggunaan</em></h1>
+        <p class="legal-intro">Situs ini disusun sebagai panduan independen untuk pembaca dan pengunjung. Gunakan isi halaman ini sebagai rujukan umum, bukan pengganti verifikasi langsung pada sumber resmi.</p>
+      </div>
+    </section>
+
+    <section class="legal-content page-shell">
+      <div class="legal-grid">
+        <aside class="legal-meta">
+          <p class="dialog-updated">Diperbarui: Agustus 2026</p>
+          <p>Keputusan perjalanan, jam buka, akses, harga, dan layanan di lokasi tetap perlu dicek ulang pada hari kunjungan.</p>
+        </aside>
+        <article class="legal-card">
+          <h2>Penggunaan isi situs</h2>
+          <p>Dengan menggunakan panduan ini, Anda memahami bahwa seluruh isi disajikan untuk informasi umum. Situs ini merupakan panduan pihak ketiga yang independen dan tidak berafiliasi dengan pengelola lokasi, instansi pemerintah, atau pelaku usaha.</p>
+
+          <h3>Akurasi dan verifikasi</h3>
+          <p>Kami berupaya merangkum informasi publik secara hati-hati, namun tidak menjamin kelengkapan atau ketepatan kondisi terkini. Waktu kunjungan, akses, biaya, layanan, dan ketentuan dapat berubah tanpa pemberitahuan. Verifikasi keputusan perjalanan yang penting langsung pada sumber resmi.</p>
+
+          <h3>Hak cipta</h3>
+          <p>Tulisan asli situs ini dilindungi hak cipta. Hak atas gambar tetap berada pada fotografer atau pemegang hak terkait; sumber foto dicantumkan pada halaman.</p>
+
+          <h3>Tanggung jawab penggunaan</h3>
+          <p>Penggunaan informasi dari situs ini sepenuhnya menjadi pertimbangan Anda sendiri. Pastikan Anda mematuhi aturan setempat, arahan petugas, dan ketentuan keselamatan selama berada di lokasi.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell footer-grid">
+      <div class="footer-brand"><img src="/mark.svg" alt="" width="44" height="44" /><p><strong>Panduan Benteng Marlborough</strong><br />Halaman hukum dan kebijakan disusun sebagai bacaan penuh dengan struktur yang lebih tenang.</p></div>
+      <div class="footer-links"><a href="/">Beranda panduan</a><a href="/kebijakan-privasi/">Kebijakan privasi</a><a href="/pengaturan-cookie/">Pengaturan cookie</a></div>
+      <div class="footer-legal"><a href="/kebijakan-privasi/">Kebijakan privasi</a><a href="/ketentuan-penggunaan/">Ketentuan penggunaan</a><a href="/pengaturan-cookie/">Pengaturan cookie</a></div>
+    </div>
+    <div class="page-shell footer-bottom"><p>Proyek panduan informasi pengunjung yang independen dan nirlaba; tidak berafiliasi dengan pengelola resmi, pemerintah, atau organisasi komersial mana pun.</p><p>© 2026 Panduan Benteng Marlborough.</p></div>
+  </footer>
+</BaseLayout>

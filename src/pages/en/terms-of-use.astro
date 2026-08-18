@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const title = "Terms of Use | Fort Marlborough Guide";
+const description = "Terms of use for Fort Marlborough Guide, including the informational nature of the site, source verification, and copyright.";
+---
+
+<BaseLayout {title} {description} lang="en" alternatePath="/ketentuan-penggunaan/" alternateLang="id">
+  <a class="skip-link" href="#content">Skip to main content</a>
+
+  <header class="subpage-header page-shell">
+    <a class="brand" href="/en/" aria-label="Return to Fort Marlborough Guide home">
+      <img src="/mark.svg" alt="Fort Marlborough mark" width="56" height="56" />
+      <span class="brand-copy"><strong>FORT</strong><span>Marlborough</span></span>
+    </a>
+    <div class="subpage-tools">
+      <a class="subpage-home-link" href="/en/">BACK TO HOME</a>
+      <a class="header-lang-link" href="/ketentuan-penggunaan/" lang="id" hreflang="id">ID</a>
+    </div>
+  </header>
+
+  <main id="content" class="legal-page">
+    <section class="legal-hero">
+      <div class="page-shell legal-hero-inner">
+        <p class="section-label">USE</p>
+        <h1>Terms of <em>use</em></h1>
+        <p class="legal-intro">This site is written as an independent guide for readers and visitors. Use its content as general reference, not as a substitute for checking directly with official sources.</p>
+      </div>
+    </section>
+
+    <section class="legal-content page-shell">
+      <div class="legal-grid">
+        <aside class="legal-meta">
+          <p class="dialog-updated">Updated: August 2026</p>
+          <p>Travel decisions, opening arrangements, access, pricing, and services should still be reconfirmed on the day of your visit.</p>
+        </aside>
+        <article class="legal-card">
+          <h2>Use of site content</h2>
+          <p>By using this guide, you understand that its content is provided for general information. It is an independent third-party guide and is not affiliated with the site manager, a government agency, or any business operator.</p>
+
+          <h3>Accuracy and verification</h3>
+          <p>We aim to summarise public information with care, but cannot guarantee current completeness or accuracy. Opening times, access, fees, services, and rules can change without notice. Confirm important travel decisions directly with official sources.</p>
+
+          <h3>Copyright</h3>
+          <p>Original writing on this site is protected by copyright. Image rights remain with the respective photographer or rights holder; photo sources are identified on the page.</p>
+
+          <h3>User responsibility</h3>
+          <p>Your use of information from this site remains your own decision. Please follow local rules, staff direction, and safety requirements while visiting the site itself.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell footer-grid">
+      <div class="footer-brand"><img src="/mark.svg" alt="" width="44" height="44" /><p><strong>Fort Marlborough Guide</strong><br />Legal and policy content is now presented as full pages with calmer reading structure.</p></div>
+      <div class="footer-links"><a href="/en/">Guide home</a><a href="/en/privacy-policy/">Privacy policy</a><a href="/en/cookie-settings/">Cookie settings</a></div>
+      <div class="footer-legal"><a href="/en/privacy-policy/">Privacy policy</a><a href="/en/terms-of-use/">Terms of use</a><a href="/en/cookie-settings/">Cookie settings</a></div>
+    </div>
+    <div class="page-shell footer-bottom"><p>An independent, non-profit visitor-information project; not affiliated with the official site manager, government or commercial organisations.</p><p>© 2026 Fort Marlborough Guide.</p></div>
+  </footer>
+</BaseLayout>

@@ -256,37 +256,9 @@ const faqSchema = {
     <div class="page-shell footer-grid">
       <div class="footer-brand"><img src="/mark.svg" alt="" width="44" height="44" /><p><strong>Panduan Benteng Marlborough</strong><br />Membaca pesisir, sejarah, dan kesiapan berkunjung dengan lebih tenang.</p></div>
       <div class="footer-links"><a href={tourismSource} target="_blank" rel="noreferrer">Informasi wisata Kota Bengkulu ↗</a><a href={cityTourism} target="_blank" rel="noreferrer">Dinas Pariwisata Kota Bengkulu ↗</a><a href={commonsSource} target="_blank" rel="noreferrer">Sumber foto Wikimedia Commons ↗</a></div>
-      <div class="footer-legal"><button data-dialog="privacy-dialog">Kebijakan privasi</button><button data-dialog="terms-dialog">Ketentuan penggunaan</button><button data-dialog="cookie-dialog">Pengaturan cookie</button></div>
+      <div class="footer-legal"><a href="/kebijakan-privasi/">Kebijakan privasi</a><a href="/ketentuan-penggunaan/">Ketentuan penggunaan</a><a href="/pengaturan-cookie/">Pengaturan cookie</a></div>
     </div>
     <div class="page-shell footer-bottom"><p>Proyek panduan informasi pengunjung yang independen dan nirlaba; tidak berafiliasi dengan pengelola resmi, pemerintah, atau organisasi komersial mana pun.</p><p>© 2026 Panduan Benteng Marlborough.</p></div>
   </footer>
-
-  <dialog id="privacy-dialog" class="legal-dialog" aria-labelledby="privacy-title"><div><button class="dialog-close" data-close-dialog aria-label="Tutup">×</button><p class="section-label">PRIVASI</p><h2 id="privacy-title">Kebijakan privasi</h2><p class="dialog-updated">Diperbarui: Agustus 2026</p><h3>Informasi yang kami proses</h3><p>Kami berupaya membatasi pemrosesan data pada yang diperlukan untuk menjalankan situs, seperti data teknis penayangan, preferensi cookie, dan informasi yang Anda kirimkan sendiri melalui kanal kontak yang tersedia.</p><h3>Untuk apa digunakan</h3><p>Data dapat digunakan untuk memahami pola penggunaan secara agregat, memperbaiki isi panduan, menanggapi permintaan, dan memenuhi kewajiban hukum yang berlaku.</p><h3>Layanan pihak ketiga</h3><p>Peta Google dan Google Analytics dapat memproses data berdasarkan kebijakan masing-masing. Analitik hanya dimuat setelah Anda menyetujui cookie analitik.</p><h3>Hak Anda</h3><p>Anda dapat meminta akses, koreksi, penghapusan, pembatasan, atau menyampaikan keberatan sesuai hukum perlindungan data yang berlaku.</p></div></dialog>
-  <dialog id="terms-dialog" class="legal-dialog" aria-labelledby="terms-title"><div><button class="dialog-close" data-close-dialog aria-label="Tutup">×</button><p class="section-label">PENGGUNAAN</p><h2 id="terms-title">Ketentuan penggunaan</h2><p class="dialog-updated">Diperbarui: Agustus 2026</p><p>Dengan menggunakan panduan ini, Anda memahami bahwa seluruh isi disajikan untuk informasi umum. Situs ini merupakan panduan pihak ketiga yang independen dan tidak berafiliasi dengan pengelola lokasi, instansi pemerintah, atau pelaku usaha.</p><p>Kami berupaya merangkum informasi publik secara hati-hati, namun tidak menjamin kelengkapan atau ketepatan kondisi terkini. Waktu kunjungan, akses, biaya, layanan, dan ketentuan dapat berubah tanpa pemberitahuan. Verifikasi keputusan perjalanan yang penting langsung pada sumber resmi.</p><p>Tulisan asli situs ini dilindungi hak cipta. Hak atas gambar tetap berada pada fotografer atau pemegang hak terkait; sumber foto dicantumkan pada halaman.</p></div></dialog>
-  <dialog id="cookie-dialog" class="legal-dialog cookie-dialog" aria-labelledby="cookie-title"><div><button class="dialog-close" data-close-dialog aria-label="Tutup">×</button><p class="section-label">PREFERENSI</p><h2 id="cookie-title">Pengaturan cookie</h2><p class="dialog-updated">Diperbarui: Agustus 2026</p><div class="cookie-option"><div><strong>Cookie penting</strong><p>Diperlukan untuk fungsi dasar situs dan tidak dapat dimatikan.</p></div><span>Selalu aktif</span></div><label class="cookie-option"><div><strong>Cookie analitik</strong><p>Membantu memahami penggunaan situs secara agregat melalui Google Analytics.</p></div><input type="checkbox" id="analytics-choice" /><span class="switch" aria-hidden="true"></span></label><div class="cookie-actions"><button class="button button-quiet" data-reject-cookies>Tolak semua</button><button class="button button-solid" data-save-cookies>Simpan preferensi</button></div></div></dialog>
-
-  <button class="cookie-prompt" data-open-cookie aria-label="Atur cookie">Preferensi cookie</button>
-
-  <script>
-    const storageKey = "benteng-marlborough-analytics";
-    const cookieDialog = document.querySelector<HTMLDialogElement>("#cookie-dialog");
-    const analyticsChoice = document.querySelector<HTMLInputElement>("#analytics-choice");
-    document.querySelectorAll<HTMLButtonElement>("[data-dialog]").forEach((button) => {
-      button.addEventListener("click", () => document.querySelector<HTMLDialogElement>(`#${button.dataset.dialog}`)?.showModal());
-    });
-    document.querySelectorAll<HTMLButtonElement>("[data-close-dialog]").forEach((button) => button.addEventListener("click", () => button.closest("dialog")?.close()));
-    document.querySelector<HTMLButtonElement>("[data-open-cookie]")?.addEventListener("click", () => cookieDialog?.showModal());
-    document.querySelector<HTMLButtonElement>("[data-save-cookies]")?.addEventListener("click", () => {
-      const choice = analyticsChoice?.checked ? "granted" : "denied";
-      localStorage.setItem(storageKey, choice);
-      if (choice === "granted") window.dispatchEvent(new Event("benteng:analytics-consent"));
-      cookieDialog?.close();
-    });
-    document.querySelector<HTMLButtonElement>("[data-reject-cookies]")?.addEventListener("click", () => {
-      localStorage.setItem(storageKey, "denied");
-      if (analyticsChoice) analyticsChoice.checked = false;
-      cookieDialog?.close();
-    });
-    if (analyticsChoice) analyticsChoice.checked = localStorage.getItem(storageKey) === "granted";
-  </script>
+  <a class="cookie-prompt" href="/pengaturan-cookie/" aria-label="Atur cookie">Preferensi cookie</a>
 </BaseLayout>

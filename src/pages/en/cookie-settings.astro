@@ -1,0 +1,91 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const title = "Cookie Settings | Fort Marlborough Guide";
+const description = "Manage analytical-cookie preferences for Fort Marlborough Guide from a dedicated page.";
+---
+
+<BaseLayout {title} {description} lang="en" alternatePath="/pengaturan-cookie/" alternateLang="id">
+  <a class="skip-link" href="#content">Skip to main content</a>
+
+  <header class="subpage-header page-shell">
+    <a class="brand" href="/en/" aria-label="Return to Fort Marlborough Guide home">
+      <img src="/mark.svg" alt="Fort Marlborough mark" width="56" height="56" />
+      <span class="brand-copy"><strong>FORT</strong><span>Marlborough</span></span>
+    </a>
+    <div class="subpage-tools">
+      <a class="subpage-home-link" href="/en/">BACK TO HOME</a>
+      <a class="header-lang-link" href="/pengaturan-cookie/" lang="id" hreflang="id">ID</a>
+    </div>
+  </header>
+
+  <main id="content" class="legal-page">
+    <section class="legal-hero">
+      <div class="page-shell legal-hero-inner">
+        <p class="section-label">PREFERENCES</p>
+        <h1>Cookie <em>settings</em></h1>
+        <p class="legal-intro">This page gives you direct control over analytical-cookie loading. Your preference is stored locally in the browser so the site can remember it on later visits.</p>
+      </div>
+    </section>
+
+    <section class="legal-content page-shell">
+      <div class="legal-grid">
+        <aside class="legal-meta">
+          <p class="dialog-updated">Updated: August 2026</p>
+          <p>Essential cookies support basic site behaviour. Analytical cookies are optional and load only after consent.</p>
+        </aside>
+        <article class="legal-card">
+          <h2>Choose your preference</h2>
+          <div class="cookie-option">
+            <div><strong>Essential cookies</strong><p>Required for basic site functions and cannot be disabled.</p></div>
+            <span>Always active</span>
+          </div>
+          <label class="cookie-option">
+            <div><strong>Analytics cookies</strong><p>Help us understand aggregate site use through Google Analytics.</p></div>
+            <input type="checkbox" id="analytics-choice" />
+            <span class="switch" aria-hidden="true"></span>
+          </label>
+          <div class="cookie-actions">
+            <button class="button button-quiet" type="button" data-reject-cookies>Reject all</button>
+            <button class="button button-solid" type="button" data-save-cookies>Save preferences</button>
+          </div>
+          <p id="cookie-status" aria-live="polite"></p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell footer-grid">
+      <div class="footer-brand"><img src="/mark.svg" alt="" width="44" height="44" /><p><strong>Fort Marlborough Guide</strong><br />Cookie preferences are now available as a dedicated page you can revisit any time.</p></div>
+      <div class="footer-links"><a href="/en/">Guide home</a><a href="/en/privacy-policy/">Privacy policy</a><a href="/en/terms-of-use/">Terms of use</a></div>
+      <div class="footer-legal"><a href="/en/privacy-policy/">Privacy policy</a><a href="/en/terms-of-use/">Terms of use</a><a href="/en/cookie-settings/">Cookie settings</a></div>
+    </div>
+    <div class="page-shell footer-bottom"><p>An independent, non-profit visitor-information project; not affiliated with the official site manager, government or commercial organisations.</p><p>© 2026 Fort Marlborough Guide.</p></div>
+  </footer>
+
+  <script>
+    const storageKey = "benteng-marlborough-analytics";
+    const analyticsChoice = document.querySelector("#analytics-choice");
+    const status = document.querySelector("#cookie-status");
+    const reflectStatus = (choice) => {
+      if (!status) return;
+      status.textContent = choice === "granted" ? "Analytics cookies are enabled." : "Analytics cookies are disabled.";
+    };
+    if (analyticsChoice instanceof HTMLInputElement) {
+      analyticsChoice.checked = localStorage.getItem(storageKey) === "granted";
+      reflectStatus(analyticsChoice.checked ? "granted" : "denied");
+    }
+    document.querySelector("[data-save-cookies]")?.addEventListener("click", () => {
+      const choice = analyticsChoice instanceof HTMLInputElement && analyticsChoice.checked ? "granted" : "denied";
+      localStorage.setItem(storageKey, choice);
+      if (choice === "granted") window.dispatchEvent(new Event("benteng:analytics-consent"));
+      reflectStatus(choice);
+    });
+    document.querySelector("[data-reject-cookies]")?.addEventListener("click", () => {
+      localStorage.setItem(storageKey, "denied");
+      if (analyticsChoice instanceof HTMLInputElement) analyticsChoice.checked = false;
+      reflectStatus("denied");
+    });
+  </script>
+</BaseLayout>

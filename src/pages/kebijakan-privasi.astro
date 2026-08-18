@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Kebijakan Privasi | Panduan Benteng Marlborough";
+const description = "Penjelasan tentang pemrosesan data, layanan pihak ketiga, dan hak pengguna pada situs Panduan Benteng Marlborough.";
+---
+
+<BaseLayout {title} {description} lang="id" alternatePath="/en/privacy-policy/" alternateLang="en">
+  <a class="skip-link" href="#isi">Lewati ke isi utama</a>
+
+  <header class="subpage-header page-shell">
+    <a class="brand" href="/" aria-label="Kembali ke beranda Panduan Benteng Marlborough">
+      <img src="/mark.svg" alt="Tanda Benteng Marlborough" width="56" height="56" />
+      <span class="brand-copy"><strong>BENTENG</strong><span>Marlborough</span></span>
+    </a>
+    <div class="subpage-tools">
+      <a class="subpage-home-link" href="/">KEMBALI KE BERANDA</a>
+      <a class="header-lang-link" href="/en/privacy-policy/" lang="en" hreflang="en">EN</a>
+    </div>
+  </header>
+
+  <main id="isi" class="legal-page">
+    <section class="legal-hero">
+      <div class="page-shell legal-hero-inner">
+        <p class="section-label">PRIVASI</p>
+        <h1>Kebijakan <em>privasi</em></h1>
+        <p class="legal-intro">Halaman ini menjelaskan data apa yang diproses oleh situs, untuk tujuan apa data digunakan, dan bagaimana preferensi cookie analitik bekerja pada perangkat Anda.</p>
+      </div>
+    </section>
+
+    <section class="legal-content page-shell">
+      <div class="legal-grid">
+        <aside class="legal-meta">
+          <p class="dialog-updated">Diperbarui: Agustus 2026</p>
+          <p>Panduan ini berupaya menerapkan pendekatan data-minimal dan hanya memuat analitik setelah persetujuan Anda tersimpan secara lokal.</p>
+        </aside>
+        <article class="legal-card">
+          <h2>Informasi yang kami proses</h2>
+          <p>Kami berupaya membatasi pemrosesan data pada yang diperlukan untuk menjalankan situs, seperti data teknis penayangan, preferensi cookie yang Anda simpan sendiri di browser, dan informasi yang Anda kirimkan secara sukarela melalui kanal kontak yang tersedia.</p>
+
+          <h3>Untuk apa digunakan</h3>
+          <p>Data dapat digunakan untuk memahami pola penggunaan secara agregat, memperbaiki isi panduan, menanggapi permintaan, dan memenuhi kewajiban hukum yang berlaku.</p>
+
+          <h3>Layanan pihak ketiga</h3>
+          <p>Peta Google dan Google Analytics dapat memproses data berdasarkan kebijakan masing-masing. Analitik hanya dimuat setelah Anda menyetujui cookie analitik melalui halaman pengaturan cookie.</p>
+
+          <h3>Penyimpanan preferensi</h3>
+          <p>Pilihan cookie analitik disimpan secara lokal di browser Anda melalui <code>localStorage</code> dengan nilai persetujuan sederhana. Penyimpanan ini digunakan agar situs dapat mengingat pilihan Anda pada kunjungan berikutnya.</p>
+
+          <h3>Hak Anda</h3>
+          <p>Anda dapat meminta akses, koreksi, penghapusan, pembatasan, atau menyampaikan keberatan sesuai hukum perlindungan data yang berlaku.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell footer-grid">
+      <div class="footer-brand"><img src="/mark.svg" alt="" width="44" height="44" /><p><strong>Panduan Benteng Marlborough</strong><br />Halaman kebijakan yang dibuka sebagai bacaan penuh, bukan lagi jendela pop-up.</p></div>
+      <div class="footer-links"><a href="/">Beranda panduan</a><a href="/ketentuan-penggunaan/">Ketentuan penggunaan</a><a href="/pengaturan-cookie/">Pengaturan cookie</a></div>
+      <div class="footer-legal"><a href="/kebijakan-privasi/">Kebijakan privasi</a><a href="/ketentuan-penggunaan/">Ketentuan penggunaan</a><a href="/pengaturan-cookie/">Pengaturan cookie</a></div>
+    </div>
+    <div class="page-shell footer-bottom"><p>Proyek panduan informasi pengunjung yang independen dan nirlaba; tidak berafiliasi dengan pengelola resmi, pemerintah, atau organisasi komersial mana pun.</p><p>© 2026 Panduan Benteng Marlborough.</p></div>
+  </footer>
+</BaseLayout>
