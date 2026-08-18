@@ -1,7 +1,19 @@
 /**
- * Tide Archive build guard: remove adapter-generated development config from public assets.
- * The deployable Worker configuration remains at the project root in wrangler.jsonc.
+ * Build guard: replace any adapter-generated wrangler.json in dist/client/ with an
+ * authoritative copy derived from the project-root wrangler.jsonc. Cloudflare Pages CI
+ * creates a redirect pointer (.wrangler/deploy/config.json) to dist/client/wrangler.json,
+ * so the file must exist and contain the production-ready config.
  */
-import { rm } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 
-await rm(new URL("../dist/client/wrangler.json", import.meta.url), { force: true });
+const jsoncPath = new URL("../wrangler.jsonc", import.meta.url);
+const outputPath = new URL("../dist/client/wrangler.json", import.meta.url);
+
+const jsonc = await readFile(jsoncPath, "utf8");
+const stripped = jsonc
+  .replace(/\/\*[\s\S]*?\*\//g, "")
+  .replace(/(?<!:)\/\/[^\n]*/g, "")
+  .replace(/^\s*\n/gm, "");
+JSON.parse(stripped);
+
+await writeFile(outputPath, stripped);
