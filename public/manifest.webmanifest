@@ -1,0 +1,10 @@
+{
+  "name": "Panduan Benteng Marlborough",
+  "short_name": "Benteng Marlborough",
+  "icons": [
+    { "src": "/mark.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "theme_color": "#132B3A",
+  "background_color": "#F5EEDC",
+  "display": "standalone"
+}

@@ -1,0 +1,68 @@
+---
+/**
+ * Tide Archive visual system: archival editorial hierarchy, warm sand base,
+ * Benteng Indigo structure, real photography first, and restrained motion.
+ */
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  lang?: "id" | "en";
+  alternatePath?: string;
+  alternateLang?: "id" | "en";
+}
+
+const { title, description, lang = "id", alternatePath, alternateLang = lang === "id" ? "en" : "id" } = Astro.props;
+const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+const alternateUrl = alternatePath ? (Astro.site ? new URL(alternatePath, Astro.site).href : alternatePath) : undefined;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#132B3A" />
+    <meta name="color-scheme" content="light" />
+    <link rel="icon" href="/mark.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    {canonicalUrl && <link rel="alternate" hreflang={lang} href={canonicalUrl} />}
+    {alternateUrl && <link rel="alternate" hreflang={alternateLang} href={alternateUrl} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    <script is:inline>
+      const analyticsKey = "benteng-marlborough-analytics";
+      function enableAnalytics() {
+        if (window.__analyticsLoaded) return;
+        window.__analyticsLoaded = true;
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ window.dataLayer.push(arguments); }
+        window.gtag = gtag;
+        const script = document.createElement("script");
+        script.async = true;
+        script.src = "https://www.googletagmanager.com/gtag/js?id=G-HXM22WWPKP";
+        document.head.appendChild(script);
+        gtag("js", new Date());
+        gtag("config", "G-HXM22WWPKP", { anonymize_ip: true });
+      }
+      if (localStorage.getItem(analyticsKey) === "granted") enableAnalytics();
+      window.addEventListener("benteng:analytics-consent", () => enableAnalytics());
+    </script>
+  </body>
+</html>

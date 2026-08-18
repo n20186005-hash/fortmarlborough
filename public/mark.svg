@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Tanda Benteng Marlborough</title>
+  <rect width="128" height="128" rx="28" fill="#132B3A"/>
+  <path d="M20 38 38 20l14 11h24l14-11 18 18-11 14v24l11 14-18 18-14-11H52l-14 11-18-18 11-14V52Z" fill="none" stroke="#D6774A" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M44 82V53h40v29M55 82V66h18v16M50 53l14-15 14 15" fill="none" stroke="#F6EEDC" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="64" cy="47" r="3" fill="#89A99C"/>
+</svg>
