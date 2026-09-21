@@ -1,0 +1,62 @@
+---
+/**
+ * Prerendered 404 so Cloudflare can serve it with a real 404 status
+ * (wrangler.jsonc uses not_found_handling: "404-page" instead of SPA fallback).
+ */
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Halaman tidak ditemukan | Panduan Benteng Marlborough";
+const description = "Halaman yang Anda buka tidak tersedia. Kembali ke panduan Benteng Marlborough untuk sejarah, jam buka, tiket, arah perjalanan, dan peta lokasi.";
+const tourismSource = "https://siparta.bengkulukota.go.id/wisata/benteng-marlborough";
+const cityTourism = "https://pariwisata.bengkulukota.go.id/";
+const commonsSource = "https://commons.wikimedia.org/";
+---
+
+<BaseLayout {title} {description} lang="id">
+  <a class="skip-link" href="#isi">Lewati ke isi utama</a>
+
+  <header class="subpage-header page-shell">
+    <a class="brand" href="/" aria-label="Beranda Panduan Benteng Marlborough">
+      <img src="/mark.svg" alt="Tanda Benteng Marlborough" width="56" height="56" />
+      <span class="brand-copy"><strong>BENTENG</strong><span>Marlborough</span></span>
+    </a>
+    <div class="subpage-tools">
+      <a class="subpage-home-link" href="/">KEMBALI KE BERANDA</a>
+      <a class="header-lang-link" href="/en/" lang="en" hreflang="en">EN</a>
+    </div>
+  </header>
+
+  <main id="isi" class="legal-page">
+    <section class="legal-hero">
+      <div class="page-shell legal-hero-inner">
+        <p class="section-label">404 · HALAMAN TIDAK ADA</p>
+        <h1>Halaman tidak <em>ditemukan.</em></h1>
+        <p class="legal-intro">Tautan ini mungkin sudah berubah atau salah ketik. Berikut jalan pintas ke bagian panduan yang paling sering dibuka.</p>
+      </div>
+    </section>
+
+    <section class="legal-content page-shell">
+      <article class="legal-card">
+        <h2>Lanjutkan ke mana?</h2>
+        <p>Benteng Marlborough adalah benteng peninggalan East India Company (1714–1719) di Teluk Segara, Kota Bengkulu. Mulai lagi dari salah satu bagian berikut:</p>
+        <ul>
+          <li><a href="/">Beranda panduan Benteng Marlborough</a></li>
+          <li><a href="/#sejarah">Sejarah Benteng Marlborough</a></li>
+          <li><a href="/#kunjungan">Jam buka, tiket masuk, dan persiapan kunjungan</a></li>
+          <li><a href="/#jelajah">Urutan ruang saat menjelajah benteng</a></li>
+          <li><a href="/#faq">Tanya jawab pengunjung</a></li>
+          <li><a href="/en/">Fort Marlborough guide (English)</a></li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell footer-grid">
+      <div class="footer-brand"><img src="/mark.svg" alt="" width="44" height="44" /><p><strong>Panduan Benteng Marlborough</strong><br />Membaca pesisir, sejarah, dan kesiapan berkunjung dengan lebih tenang.</p></div>
+      <div class="footer-links"><a href={tourismSource} target="_blank" rel="noreferrer">Informasi wisata Kota Bengkulu ↗</a><a href={cityTourism} target="_blank" rel="noreferrer">Dinas Pariwisata Kota Bengkulu ↗</a><a href={commonsSource} target="_blank" rel="noreferrer">Sumber foto Wikimedia Commons ↗</a></div>
+      <div class="footer-legal"><a href="/kebijakan-privasi/">Kebijakan privasi</a><a href="/ketentuan-penggunaan/">Ketentuan penggunaan</a><a href="/pengaturan-cookie/">Pengaturan cookie</a></div>
+    </div>
+    <div class="page-shell footer-bottom"><p>Proyek panduan informasi pengunjung yang independen dan nirlaba; tidak berafiliasi dengan pengelola resmi, pemerintah, atau organisasi komersial mana pun.</p><p>© 2026 Panduan Benteng Marlborough.</p></div>
+  </footer>
+</BaseLayout>

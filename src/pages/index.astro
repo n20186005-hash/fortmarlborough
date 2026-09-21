@@ -5,8 +5,8 @@
  */
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const title = "Benteng Marlborough — Panduan Sejarah & Kunjungan Bengkulu";
-const description = "Panduan independen berbahasa Indonesia untuk memahami sejarah, arah kunjungan, dan persiapan praktis ke Benteng Marlborough di Kota Bengkulu.";
+const title = "Benteng Marlborough Bengkulu — Panduan Wisata";
+const description = "Panduan independen Benteng Marlborough di Bengkulu: sejarah 1714–1719, jam buka, tiket masuk, arah perjalanan dari bandara, peta lokasi, dan hal yang bisa dilakukan di sekitar kota.";
 const mapLink = "https://maps.app.goo.gl/PmRDYbcDPFJLHT4E6";
 const tourismSource = "https://siparta.bengkulukota.go.id/wisata/benteng-marlborough";
 const cityTourism = "https://pariwisata.bengkulukota.go.id/";
@@ -58,12 +58,15 @@ const faqSchema = {
     { "@type": "Question", name: "Kapan waktu yang baik untuk berkunjung?", acceptedAnswer: { "@type": "Answer", text: "Pagi atau sore biasanya terasa lebih nyaman untuk berjalan di ruang terbuka. Cuaca pesisir dapat berubah; bawa pelindung dari panas dan hujan." } },
     { "@type": "Question", name: "Bagaimana menuju Benteng Marlborough dari bandara?", acceptedAnswer: { "@type": "Answer", text: "Dari Bandar Udara Fatmawati Soekarno, pengunjung dapat melanjutkan dengan taksi, layanan transportasi daring, atau kendaraan sewaan menuju pusat Kota Bengkulu. Periksa rute dan waktu tempuh pada hari perjalanan." } },
     { "@type": "Question", name: "Apakah tersedia parkir dan toilet?", acceptedAnswer: { "@type": "Answer", text: "Ketersediaan fasilitas dan kondisi parkir dapat berubah mengikuti pengelolaan dan kegiatan di lokasi. Datang lebih awal bila membawa kendaraan, dan tanyakan kepada petugas saat tiba." } },
-    { "@type": "Question", name: "Berapa harga tiket masuknya?", acceptedAnswer: { "@type": "Answer", text: "Biaya kunjungan dan kebijakan kategori pengunjung dapat berubah. Konfirmasikan langsung pada pengelola sebelum berangkat atau saat tiba di lokasi." } }
+    { "@type": "Question", name: "Berapa harga tiket masuknya?", acceptedAnswer: { "@type": "Answer", text: "Biaya kunjungan dan kebijakan kategori pengunjung dapat berubah. Konfirmasikan langsung pada pengelola sebelum berangkat atau saat tiba di lokasi." } },
+    { "@type": "Question", name: "Jam buka Benteng Marlborough pukul berapa?", acceptedAnswer: { "@type": "Answer", text: "Rujukan umum menyebut kunjungan pada siang hari, sekitar 08.00–17.00 WIB. Jam operasional dapat berubah saat hari libur, kegiatan, atau perawatan, jadi periksa pengumuman pengelola sebelum berangkat." } },
+    { "@type": "Question", name: "Di mana lokasi Benteng Marlborough?", acceptedAnswer: { "@type": "Answer", text: "Benteng berada di Jl. Benteng, Kebun Keling, Kecamatan Teluk Segara, Kota Bengkulu 38116, dekat koridor Pantai Tapak Paderi. Gunakan tautan Google Maps di halaman ini untuk arah terkini." } },
+    { "@type": "Question", name: "Apa yang bisa dilakukan di Bengkulu selain berkunjung ke benteng?", acceptedAnswer: { "@type": "Answer", text: "Pengunjung biasanya menggabungkan kunjungan dengan jalan santai di Pantai Tapak Paderi, menyusuri Kampung Cina dan kawasan kota lama, serta mampir ke Rumah Pengasingan Bung Karno. Waktu buka dan akses tiap tempat berbeda, jadi sesuaikan dengan rencana harian." } }
   ]
 };
 ---
 
-<BaseLayout {title} {description} lang="id" alternatePath="/en/" alternateLang="en">
+<BaseLayout {title} {description} lang="id" alternatePath="/en/" alternateLang="en" ogImage={gatePhoto}>
   <script is:inline type="application/ld+json" set:html={JSON.stringify(attractionSchema)}></script>
   <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
 
@@ -125,7 +128,7 @@ const faqSchema = {
     <section id="sejarah" class="chapter history-section page-shell" aria-labelledby="history-title">
       <div class="chapter-index">01<span>ARSIP<br />PESISIR</span></div>
       <div class="chapter-body">
-        <p class="section-label">SEBUAH BENTENG DI TEPI LAUT</p>
+        <p class="section-label">SEJARAH BENTENG MARLBOROUGH · 1714–1719</p>
         <h2 id="history-title">Sejarah yang tidak berhenti pada <em>tembok.</em></h2>
         <div class="prose-grid">
           <p class="lead">Menurut portal informasi pariwisata Kota Bengkulu, Benteng Marlborough dibangun oleh East India Company Inggris pada 1714–1719 di bawah pimpinan Joseph Callet. Pembangunannya berkaitan dengan upaya menguatkan posisi Inggris di pantai barat Sumatra dan menjaga perdagangan lada.[<a href={tourismSource} target="_blank" rel="noreferrer">1</a>]</p>
@@ -215,7 +218,7 @@ const faqSchema = {
       <div class="page-shell around-inner">
         <div class="chapter-index light">04<span>JEJAK<br />SEKITAR</span></div>
         <div class="chapter-body">
-          <div class="around-heading"><p class="section-label light-label">SEKITAR BENTENG</p><h2 id="around-title">Lanjutkan dengan rasa ingin <em>tahu.</em></h2></div>
+          <div class="around-heading"><p class="section-label light-label">SEKITAR BENTENG</p><h2 id="around-title">Lanjutkan dengan rasa ingin <em>tahu.</em></h2><p class="muted-note">Hal yang bisa dilakukan di sekitar Bengkulu setelah berkeliling benteng: berjalan di koridor pesisir, membaca lapisan kota lama, lalu melanjutkan ke situs sejarah lain di pusat kota.</p></div>
           <div class="around-grid">
             <article><span>01</span><h3>Ruang pesisir</h3><p><strong>Pantai Tapak Paderi</strong> berada di koridor pesisir dekat benteng. Gunakan sebagai konteks geografis, bukan sekadar tempat berhenti setelah berfoto.</p></article>
             <article><span>02</span><h3>Jejak kota</h3><p><strong>Kampung Cina</strong> dan kawasan kota lama membantu membaca beragam lapisan perdagangan dan kehidupan urban Bengkulu.</p></article>
@@ -247,6 +250,9 @@ const faqSchema = {
           <details><summary>Apakah perlu membeli tiket lebih dahulu?<span>+</span></summary><p>Ketentuan tiket dapat berubah. Pastikan langsung kepada pengelola atau cek informasi pariwisata setempat sebelum memulai perjalanan.</p></details>
           <details><summary>Apakah aman membawa anak atau lansia?<span>+</span></summary><p>Rencanakan ritme berjalan sesuai kondisi masing-masing, perhatikan permukaan lantai dan paparan matahari, serta dampingi anak di dekat tepi struktur. Tanyakan akses yang tersedia saat tiba.</p></details>
           <details><summary>Apakah ada toilet dan tempat duduk?<span>+</span></summary><p>Fasilitas dapat tersedia namun kondisinya tidak selalu sama setiap hari. Portal wisata Kota Bengkulu memasukkan toilet dan tempat duduk sebagai bagian dari evaluasi pengalaman lokasi; tetap cek langsung di hari kunjungan.[<a href={tourismSource} target="_blank" rel="noreferrer">1</a>]</p></details>
+          <details><summary>Jam buka Benteng Marlborough pukul berapa?<span>+</span></summary><p>Rujukan umum menyebut kunjungan pada siang hari, sekitar <b>08.00–17.00 WIB</b>. Jam operasional dapat berubah saat hari libur, kegiatan, atau perawatan, jadi periksa pengumuman pengelola sebelum berangkat.</p></details>
+          <details><summary>Di mana lokasi Benteng Marlborough?<span>+</span></summary><p>Benteng berada di Jl. Benteng, Kebun Keling, Kecamatan Teluk Segara, Kota Bengkulu 38116, dekat koridor Pantai Tapak Paderi. Gunakan tautan Google Maps di halaman ini untuk arah terkini.</p></details>
+          <details><summary>Apa yang bisa dilakukan di Bengkulu selain berkunjung ke benteng?<span>+</span></summary><p>Pengunjung biasanya menggabungkan kunjungan dengan jalan santai di Pantai Tapak Paderi, menyusuri Kampung Cina dan kawasan kota lama, serta mampir ke Rumah Pengasingan Bung Karno. Waktu buka dan akses tiap tempat berbeda, jadi sesuaikan dengan rencana harian.</p></details>
         </div>
       </div>
     </section>

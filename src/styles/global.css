@@ -163,6 +163,7 @@ figcaption span { color: var(--terracotta); font: 500 .65rem var(--font-mono); }
 .around-section.chapter { grid-template-columns: none; background: var(--ink); color: #fffdf7; padding: 120px 0; }
 .around-inner { display: grid; grid-template-columns: 160px 1fr; gap: 3rem; }
 .around-section.chapter .around-heading { margin-bottom: 3rem; }
+.around-heading .muted-note { margin-top: 1.1rem; max-width: 720px; color: rgba(255,253,247,.74); font-size: .82rem; line-height: 1.8; }
 .around-section.chapter .around-heading h2 { color: #fffdf7; }
 .around-section.chapter .chapter-body { max-width: none; }
 .around-heading { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 3rem; }

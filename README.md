@@ -30,13 +30,19 @@ corepack pnpm deploy
 
 ## 域名配置
 
-站点 URL 仅由 `astro.config.ts` 中的 `SITE_URL` 环境变量派生；项目没有任何占位域名。当未设置 `SITE_URL` 时，构建仍正常，canonical 与绝对 Open Graph URL 会被省略，`@astrojs/sitemap` 也不会启用。
-
-域名确定后，只需在构建环境中设置一次：
+`astro.config.ts` 的 `site` 默认为生产域名 `https://fortmarlborough.com`，因此 canonical、绝对 Open Graph URL、hreflang 与 `sitemap-index.xml` 在每次构建中都会产出。预览/临时环境可用 `SITE_URL` 覆盖一次：
 
 ```bash
-SITE_URL=https://nama-domain-anda.id corepack pnpm build
+SITE_URL=https://preview.example.com corepack pnpm build
 ```
+
+## 搜索引擎与部署要点
+
+* **统一网址**：canonical 指向 `https://fortmarlborough.com/…`，每页输出 `hreflang`（`id` / `en` / `x-default` 指向印尼语版本）。
+* **HTTPS 与 www**：Workers 静态资产不支持域名级重定向，需在 Cloudflare 控制台完成——SSL/TLS → Edge Certificates 开启 **Always Use HTTPS**；Rules → Redirect Rules 将 `https://www.fortmarlborough.com/*` 301 到 `https://fortmarlborough.com/${1}`。`public/_redirects` 仅保留路径级规则。
+* **HSTS 与安全头**：由 `public/_headers` 下发（含 `Strict-Transport-Security`），`/_astro/*` 使用不可变缓存。
+* **爬虫入口**：`public/robots.txt` 声明 `Sitemap: https://fortmarlborough.com/sitemap-index.xml`。
+* **404**：`src/pages/404.astro` 预渲染为 `404.html`，`wrangler.jsonc` 使用 `not_found_handling: "404-page"`，避免 SPA 回退造成的软 404。
 
 ## 内容与素材说明
 

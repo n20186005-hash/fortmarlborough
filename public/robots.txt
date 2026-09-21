@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Canonical host only; http/www variants are redirected to https://fortmarlborough.com/
+Sitemap: https://fortmarlborough.com/sitemap-index.xml
