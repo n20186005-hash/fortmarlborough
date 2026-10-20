@@ -68,22 +68,22 @@ const description = "Atur preferensi cookie analitik untuk situs Panduan Benteng
     const storageKey = "benteng-marlborough-analytics";
     const analyticsChoice = document.querySelector("#analytics-choice");
     const status = document.querySelector("#cookie-status");
-    const reflectStatus = (choice) => {
+    const reflectStatus = (choice: "granted" | "denied") => {
       if (!status) return;
       status.textContent = choice === "granted" ? "Cookie analitik diaktifkan." : "Cookie analitik dinonaktifkan.";
     };
     if (analyticsChoice instanceof HTMLInputElement) {
-      analyticsChoice.checked = localStorage.getItem(storageKey) === "granted";
+      try { analyticsChoice.checked = localStorage.getItem(storageKey) === "granted"; } catch {}
       reflectStatus(analyticsChoice.checked ? "granted" : "denied");
     }
     document.querySelector("[data-save-cookies]")?.addEventListener("click", () => {
       const choice = analyticsChoice instanceof HTMLInputElement && analyticsChoice.checked ? "granted" : "denied";
-      localStorage.setItem(storageKey, choice);
+      try { localStorage.setItem(storageKey, choice); } catch {}
       if (choice === "granted") window.dispatchEvent(new Event("benteng:analytics-consent"));
       reflectStatus(choice);
     });
     document.querySelector("[data-reject-cookies]")?.addEventListener("click", () => {
-      localStorage.setItem(storageKey, "denied");
+      try { localStorage.setItem(storageKey, "denied"); } catch {}
       if (analyticsChoice instanceof HTMLInputElement) analyticsChoice.checked = false;
       reflectStatus("denied");
     });

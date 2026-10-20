@@ -13,7 +13,7 @@
     "dev": "astro dev --host 0.0.0.0 --port 3000",
     "start": "astro dev --host 0.0.0.0 --port 3000",
     "check": "astro check",
-    "build": "astro build && node scripts/sanitize-dist.mjs",
+    "build": "astro build",
     "preview": "astro preview",
     "deploy": "pnpm build && wrangler deploy"
   },

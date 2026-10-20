@@ -256,7 +256,7 @@ figcaption span { color: var(--terracotta); font: 500 .65rem var(--font-mono); }
 
 @media (max-width: 900px) {
   .site-header { height: 68px; padding: 0 1rem; }
-  .main-nav { display: none; }
+  .main-nav { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); width:100%; order:5; gap:.25rem; }
   .brand { min-width: 0; }
   .header-map-link { font-size: .64rem; }
   .hero { min-height: 740px; padding-bottom: 52px; }
@@ -331,3 +331,8 @@ figcaption span { color: var(--terracotta); font: 500 .65rem var(--font-mono); }
   .chapter-body { animation-delay: .08s; }
   @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 }
+
+.main-nav a,.header-map-link,.header-lang-link,.subpage-home-link{min-height:44px;display:inline-flex;align-items:center}.header-lang-link{min-width:44px;min-height:44px;justify-content:center}
+@media(max-width:900px){.site-header{position:relative;height:auto;min-height:82px;flex-wrap:wrap;padding:1rem;background:var(--ink)}.main-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;order:5;gap:.25rem;padding-top:.5rem;border-top:1px solid rgba(255,255,255,.3)}.main-nav a{padding:.3rem .5rem}}
+
+.public-check{padding:1.5rem 0;font-size:.85rem;line-height:1.75}.public-check h2{font-size:1.3rem}.public-check a{text-decoration:underline}
