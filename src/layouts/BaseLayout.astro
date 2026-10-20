@@ -12,10 +12,11 @@ interface Props {
   alternatePath?: string;
   alternateLang?: "id" | "en";
   ogImage?: string;
+  noindex?: boolean;
 }
 
-const { title, description, lang = "id", alternatePath, alternateLang = lang === "id" ? "en" : "id", ogImage } = Astro.props;
-const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+const { title, description, lang = "id", alternatePath, alternateLang = lang === "id" ? "en" : "id", ogImage, noindex = false } = Astro.props;
+const canonicalUrl = !noindex && Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
 const alternateUrl = alternatePath ? (Astro.site ? new URL(alternatePath, Astro.site).href : alternatePath) : undefined;
 // Indonesian is the default language of the site, so x-default always points at the id version.
 const defaultUrl = lang === "en" ? (alternateUrl ?? canonicalUrl) : canonicalUrl;
@@ -32,7 +33,7 @@ const alternateOgLocale = lang === "en" ? "id_ID" : "en_US";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1"} />
     <meta name="theme-color" content="#132B3A" />
     <meta name="color-scheme" content="light" />
     <link rel="icon" href="/mark.svg" type="image/svg+xml" />
@@ -79,7 +80,7 @@ const alternateOgLocale = lang === "en" ? "id_ID" : "en_US";
         gtag("js", new Date());
         gtag("config", "G-HXM22WWPKP", { anonymize_ip: true });
       }
-      if (localStorage.getItem(analyticsKey) === "granted") enableAnalytics();
+      try { if (localStorage.getItem(analyticsKey) === "granted") enableAnalytics(); } catch {}
       window.addEventListener("benteng:analytics-consent", () => enableAnalytics());
     </script>
   </body>

@@ -1,6 +1,6 @@
 # Panduan Benteng Marlborough
 
-这是一个使用 **Astro + Tailwind CSS + TypeScript** 制作的印尼语单页景点科普网站。它面向计划访问明古鲁 Benteng Marlborough 的读者，整合历史背景、到访准备、交通、周边类型信息、地图、FAQ、隐私与 Cookie 偏好。
+这是一个使用 **Astro + Tailwind CSS + TypeScript** 制作的印尼语与英语景点指南。它面向计划访问明古鲁 Benteng Marlborough 的读者，整合历史背景、到访准备、交通、周边类型信息、地图、FAQ、隐私与 Cookie 偏好。
 
 ## 技术与部署
 
@@ -12,7 +12,7 @@
 | 包管理器 | `pnpm@10.11.1`（见 `packageManager`） |
 | 框架 | Astro `7.2.2` |
 | 样式 | Tailwind CSS `4.3.3` |
-| 部署配置 | `wrangler.jsonc`，静态目录为 `dist/client` |
+| 部署配置 | `wrangler.jsonc`，静态目录为 `dist` |
 
 安装、检查与构建：
 
@@ -39,7 +39,7 @@ SITE_URL=https://preview.example.com corepack pnpm build
 ## 搜索引擎与部署要点
 
 * **统一网址**：canonical 指向 `https://fortmarlborough.com/…`，每页输出 `hreflang`（`id` / `en` / `x-default` 指向印尼语版本）。
-* **HTTPS 与 www**：Workers 静态资产不支持域名级重定向，需在 Cloudflare 控制台完成——SSL/TLS → Edge Certificates 开启 **Always Use HTTPS**；Rules → Redirect Rules 将 `https://www.fortmarlborough.com/*` 301 到 `https://fortmarlborough.com/${1}`。`public/_redirects` 仅保留路径级规则。
+* **HTTPS 与 www**：`src/worker.js` 在 ASSETS 之前执行，以301转向HTTPS主域，保留路径和查询参数。`public/_redirects` 只保留相对路径别名。
 * **HSTS 与安全头**：由 `public/_headers` 下发（含 `Strict-Transport-Security`），`/_astro/*` 使用不可变缓存。
 * **爬虫入口**：`public/robots.txt` 声明 `Sitemap: https://fortmarlborough.com/sitemap-index.xml`。
 * **404**：`src/pages/404.astro` 预渲染为 `404.html`，`wrangler.jsonc` 使用 `not_found_handling: "404-page"`，避免 SPA 回退造成的软 404。

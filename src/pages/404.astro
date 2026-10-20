@@ -7,12 +7,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const title = "Halaman tidak ditemukan | Panduan Benteng Marlborough";
 const description = "Halaman yang Anda buka tidak tersedia. Kembali ke panduan Benteng Marlborough untuk sejarah, jam buka, tiket, arah perjalanan, dan peta lokasi.";
-const tourismSource = "https://siparta.bengkulukota.go.id/wisata/benteng-marlborough";
+const tourismSource = "https://kebudayaan.kemdikbud.go.id/bpkw5/sejarah-singkat-fort-marlborough/";
 const cityTourism = "https://pariwisata.bengkulukota.go.id/";
 const commonsSource = "https://commons.wikimedia.org/";
 ---
 
-<BaseLayout {title} {description} lang="id">
+<BaseLayout {title} {description} lang="id" noindex>
   <a class="skip-link" href="#isi">Lewati ke isi utama</a>
 
   <header class="subpage-header page-shell">
@@ -54,7 +54,7 @@ const commonsSource = "https://commons.wikimedia.org/";
   <footer class="site-footer">
     <div class="page-shell footer-grid">
       <div class="footer-brand"><img src="/mark.svg" alt="" width="44" height="44" /><p><strong>Panduan Benteng Marlborough</strong><br />Membaca pesisir, sejarah, dan kesiapan berkunjung dengan lebih tenang.</p></div>
-      <div class="footer-links"><a href={tourismSource} target="_blank" rel="noreferrer">Informasi wisata Kota Bengkulu ↗</a><a href={cityTourism} target="_blank" rel="noreferrer">Dinas Pariwisata Kota Bengkulu ↗</a><a href={commonsSource} target="_blank" rel="noreferrer">Sumber foto Wikimedia Commons ↗</a></div>
+      <div class="footer-links"><a href={tourismSource} target="_blank" rel="noreferrer">Sejarah resmi Benteng Marlborough ↗</a><a href={cityTourism} target="_blank" rel="noreferrer">Dinas Pariwisata Kota Bengkulu ↗</a><a href={commonsSource} target="_blank" rel="noreferrer">Sumber foto Wikimedia Commons ↗</a></div>
       <div class="footer-legal"><a href="/kebijakan-privasi/">Kebijakan privasi</a><a href="/ketentuan-penggunaan/">Ketentuan penggunaan</a><a href="/pengaturan-cookie/">Pengaturan cookie</a></div>
     </div>
     <div class="page-shell footer-bottom"><p>Proyek panduan informasi pengunjung yang independen dan nirlaba; tidak berafiliasi dengan pengelola resmi, pemerintah, atau organisasi komersial mana pun.</p><p>© 2026 Panduan Benteng Marlborough.</p></div>

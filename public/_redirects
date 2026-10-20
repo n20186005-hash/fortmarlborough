@@ -1,12 +1,3 @@
-# Path-level redirects only.
-#
-# Domain-level redirects (http:// -> https://, www -> apex) are NOT supported by
-# Workers static assets. Enforce them in the Cloudflare dashboard instead:
-#   1. SSL/TLS > Edge Certificates: enable "Always Use HTTPS" (http -> https 301).
-#   2. Rules > Redirect Rules (or Bulk Redirects): https://www.fortmarlborough.com/*
-#      -> https://fortmarlborough.com/${1} with status 301.
-# HSTS is delivered by _headers for every static response.
-
-# One URL per page: never expose the directory index file.
-/index.html      /       301
-/en/index.html   /en/    301
+# Legacy path aliases; scheme and host redirects are handled by src/worker.js.
+/index.html / 301
+/en/index.html /en/ 301
